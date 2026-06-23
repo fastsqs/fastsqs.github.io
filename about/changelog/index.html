@@ -1667,9 +1667,35 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <h1 id="changelog_1">Changelog<a class="headerlink" href="#changelog_1" title="Permanent link">&para;</a></h1>
+<h2 id="113-2026-06-22">1.1.3 - 2026-06-22<a class="headerlink" href="#113-2026-06-22" title="Permanent link">&para;</a></h2>
+<p>Docs &amp; packaging only — no behavior change.</p>
+<h3 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Repointed <code>project_urls</code> to the <code>fastsqs</code> org after the repository transfer,
+  and set <strong>Documentation</strong> to the docs site <a href="https://fastsqs.github.io">https://fastsqs.github.io</a> instead
+  of the GitHub README. The 1.1.2 PyPI page still linked to the old
+  <code>imgabrieldev/fastsqs</code> repo; this release corrects the sidebar links.</li>
+<li>Added a <code>docs</code> optional-dependency extra (<code>mkdocs-material</code>,
+  <code>mkdocstrings[python]</code>) for building the documentation site.</li>
+</ul>
+<h3 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Trimmed the README to a concise overview that links out to the full docs site.</li>
+</ul>
+<h3 id="internal">Internal<a class="headerlink" href="#internal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Annotated the <code>**data</code> kwargs on <code>LoggingMiddleware.log</code> as <code>Any</code> (typing only).</li>
+</ul>
+<h3 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The default <code>pytest</code> run no longer descends into the opt-in <code>tests/aws</code> and
+  <code>tests/integration</code> tiers, so it stays dependency-free (the AWS tier imports
+  <code>boto3</code> at conftest load). Run them explicitly with <code>--run-aws</code> /
+  <code>--run-integration</code>. Unblocks the tag-driven release workflow's test gate.</li>
+</ul>
 <h2 id="112-2026-06-20">1.1.2 - 2026-06-20<a class="headerlink" href="#112-2026-06-20" title="Permanent link">&para;</a></h2>
 <p>Docs &amp; packaging only — no code change.</p>
-<h3 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h3>
+<h3 id="packaging_1">Packaging<a class="headerlink" href="#packaging_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Migrated project metadata to <strong>PEP 621</strong>: a full <code>[project]</code> table in
   <code>pyproject.toml</code>, and <code>setup.py</code> removed (<code>MANIFEST.in</code> no longer ships it).</li>
@@ -1680,21 +1706,21 @@
   <code>license-files = ["LICENSE"]</code>, PEP 639), replacing the legacy
   <code>License :: OSI Approved :: MIT License</code> classifier. Renders the same on PyPI.</li>
 </ul>
-<h3 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h3>
+<h3 id="docs_1">Docs<a class="headerlink" href="#docs_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Removed decorative emojis from the README, the <code>ordering_with_standard_queues</code>
   example README, and its handler docstrings for a more conventional OSS tone.</li>
 </ul>
 <h2 id="111-2026-06-19">1.1.1 - 2026-06-19<a class="headerlink" href="#111-2026-06-19" title="Permanent link">&para;</a></h2>
 <p>Docs &amp; packaging only — no code change from 1.1.0.</p>
-<h3 id="docs_1">Docs<a class="headerlink" href="#docs_1" title="Permanent link">&para;</a></h3>
+<h3 id="docs_2">Docs<a class="headerlink" href="#docs_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Documented the v1.1.0 surface in the README: EventBridge Pipes / bare-list
   handler + <code>is_sqs_event</code>, routers / subrouters / key-value routing + default
   handler, a "why fastsqs" section, runnable examples, contributing, and accuracy
   fixes (e.g. the <code>fast-depends&gt;=3,&lt;4</code> pin and the PascalCase FIFO-attribute note).</li>
 </ul>
-<h3 id="packaging_1">Packaging<a class="headerlink" href="#packaging_1" title="Permanent link">&para;</a></h3>
+<h3 id="packaging_2">Packaging<a class="headerlink" href="#packaging_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added <code>project_urls</code> (Documentation, Changelog, Repository, Issues) so they
   render in the PyPI sidebar.</li>
@@ -1799,7 +1825,7 @@ the 0.x surface deliberately to land a clean v1.</p>
   circuit-breaker / parallelization / visibility / queue-metrics / masking
   middleware, and the legacy <code>run_middlewares</code> runner.</li>
 </ul>
-<h3 id="packaging_2">Packaging<a class="headerlink" href="#packaging_2" title="Permanent link">&para;</a></h3>
+<h3 id="packaging_3">Packaging<a class="headerlink" href="#packaging_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Real MIT <code>LICENSE</code> (was a placeholder stub).</li>
 <li><code>Development Status :: 5 - Production/Stable</code>.</li>
